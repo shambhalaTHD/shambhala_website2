@@ -169,7 +169,6 @@ const BookingForm = ({ experience = "General Inquiry" }: BookingFormProps) => {
             <SelectItem value="Trekking">Trekking</SelectItem>
             <SelectItem value="Custom Package">Custom Package</SelectItem>
             <SelectItem value="Events & Retreats">Events & Retreats</SelectItem>
-            <SelectItem value="Work From Mountains">Work From Mountains</SelectItem>
             <SelectItem value="General Inquiry">General Inquiry</SelectItem>
           </SelectContent>
         </Select>

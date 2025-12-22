@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Mountain, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/Shambhala_Logo.jpg";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -11,7 +12,6 @@ const navLinks = [
   { name: "Trekking", path: "/trekking" },
   { name: "Packages", path: "/packages" },
   { name: "Events", path: "/events" },
-  { name: "Work From Mountains", path: "/work-from-mountains" },
   { name: "Merchandise", path: "/merchandise" },
   { name: "Invest", path: "/invest" },
   { name: "Contact", path: "/contact" },
@@ -30,16 +30,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <Mountain className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
-            <div className="flex flex-col">
-              <span className="font-display text-xl md:text-2xl font-semibold text-foreground leading-tight">
-                Shambhala
-              </span>
-              <span className="text-[10px] md:text-xs text-muted-foreground tracking-widest uppercase">
-                THD • Tosh
-              </span>
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src={logo} 
+              alt="Shambhala Logo" 
+              className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105" 
+            />
           </Link>
 
           {/* Desktop Navigation */}

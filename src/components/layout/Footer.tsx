@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mountain, Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import logo from "@/assets/Shambhala_Logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,6 @@ const Footer = () => {
 
   const moreLinks = [
     { name: "Events & Retreats", path: "/events" },
-    { name: "Work From Mountains", path: "/work-from-mountains" },
     { name: "Merchandise", path: "/merchandise" },
     { name: "Become a Partner", path: "/invest" },
   ];
@@ -25,12 +25,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <Mountain className="w-8 h-8" />
-              <div>
-                <span className="font-display text-2xl font-semibold">Shambhala</span>
-                <span className="block text-xs tracking-widest opacity-70">THD • TOSH</span>
-              </div>
+            <Link to="/" className="inline-block mb-4">
+              <img 
+                src={logo} 
+                alt="Shambhala Logo" 
+                className="h-16 w-auto" 
+              />
             </Link>
             <p className="text-sm opacity-80 leading-relaxed mb-6">
               A spiritual mountain retreat in the heart of Parvati Valley. 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Tent, Wifi, Coffee, Mountain, Star, Users, Camera, Check } from "lucide-react";
+import { Tent, Wifi, Mountain, Star, Users, Camera, Check, PawPrint } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
@@ -11,22 +11,32 @@ import bonfireImage from "@/assets/bonfire.jpg";
 
 const tentTypes = [
   {
-    name: "Mountain View Tent",
-    description: "Our signature tent with panoramic Himalayan views, perfect for couples.",
-    price: "₹2,500",
+    name: "Tent-A (Private)",
+    description: "Private tent with panoramic Himalayan views, perfect for families and groups.",
+    price: "₹3,000",
     priceNote: "per night",
-    capacity: "2 guests",
-    features: ["Queen bed", "Heater", "Private deck", "Mountain view", "Bonfire access"],
+    capacity: "2-6 guests",
+    features: ["Mountain View", "Heater", "Private Tent", "Music and Vibe", "Star Gazing"],
     image: tentImage,
     popular: true,
+  },
+  {
+    name: "Tent-B (Sharing)",
+    description: "Budget-friendly sharing tent with stunning mountain views, ideal for solo travelers.",
+    price: "₹300",
+    priceNote: "per night",
+    capacity: "Sharing",
+    features: ["Mountain View", "Heater", "Sharing Tent", "Music and Vibe", "Star Gazing"],
+    image: tentImage,
+    popular: false,
   },
 ];
 
 const amenities = [
   { icon: Wifi, label: "Free WiFi" },
-  { icon: Coffee, label: "Breakfast Included" },
   { icon: Mountain, label: "Mountain Views" },
   { icon: Camera, label: "Photo Spots" },
+  { icon: PawPrint, label: "Pet-Friendly" },
 ];
 
 const TentStayPage = () => {
@@ -99,7 +109,7 @@ const TentStayPage = () => {
             className="mb-12"
           />
 
-          <div className="max-w-md mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {tentTypes.map((tent, index) => (
               <motion.div
                 key={tent.name}
@@ -178,11 +188,9 @@ const TentStayPage = () => {
               </h2>
               <ul className="space-y-4 text-muted-foreground">
                 {[
-                  "Breakfast (local Himachali cuisine)",
-                  "Evening bonfire with chai",
                   "Warm bedding and heaters",
                   "24/7 assistance",
-                  "Local area guide",
+                  "Area guide",
                   "Sunset viewpoint access",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">

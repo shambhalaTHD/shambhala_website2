@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Users, Clock, MapPin, Check, Star } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -13,35 +14,44 @@ const packages = [
   {
     name: "Weekend Escape",
     tagline: "Perfect for short getaways",
-    duration: "2 Nights / 3 Days",
-    price: "₹6,999",
+    duration: "1 Night / 2 Days",
+    price: "₹6,000",
     priceNote: "per person",
     image: tentImage,
     includes: [
-      "Tent accommodation",
-      "All meals included",
+      "Luxury tent accommodation",
+      "2 meals included",
+      "1 trek included",
       "Local village walk",
-      "Bonfire nights",
-      "Pickup from Bhuntar",
+      "Pickup from selected location",
     ],
     popular: false,
+    hasPickupOptions: true,
+    pickupOptions: [
+      { label: "Kasol to Kasol", value: "kasol", price: 6000 },
+      { label: "Delhi to Delhi", value: "delhi", price: 8000 },
+    ],
   },
   {
-    name: "Mountain Explorer",
+    name: "Long Weekend",
     tagline: "Our most popular package",
-    duration: "4 Nights / 5 Days",
-    price: "₹12,999",
+    duration: "1 Night / 2 Days",
+    price: "₹6,000",
     priceNote: "per person",
     image: trekkingImage,
     includes: [
-      "Tent accommodation",
-      "All meals included",
-      "Kheerganga trek",
-      "Bonfire & music nights",
-      "Village tour",
-      "Pickup/drop from Bhuntar",
+      "Luxury tent accommodation",
+      "2 meals included",
+      "Treks included",
+      "Local village walk",
+      "Pickup from selected location",
     ],
     popular: true,
+    hasPickupOptions: true,
+    pickupOptions: [
+      { label: "Kasol to Kasol", value: "kasol", price: 6000 },
+      { label: "Delhi to Delhi", value: "delhi", price: 8000 },
+    ],
   },
   {
     name: "Ultimate Adventure",
@@ -64,6 +74,19 @@ const packages = [
 ];
 
 const PackagesPage = () => {
+  const [selectedPickup, setSelectedPickup] = useState<{[key: string]: string}>({
+    "Weekend Escape": "kasol",
+    "Long Weekend": "kasol"
+  });
+
+  const getPackagePrice = (pkg: any) => {
+    if (pkg.hasPickupOptions && selectedPickup[pkg.name]) {
+      const option = pkg.pickupOptions.find((opt: any) => opt.value === selectedPickup[pkg.name]);
+      return option ? `₹${option.price.toLocaleString('en-IN')}` : pkg.price;
+    }
+    return pkg.price;
+  };
+
   return (
     <Layout>
       {/* Hero */}
@@ -150,8 +173,25 @@ const PackagesPage = () => {
                     <span>{pkg.duration}</span>
                   </div>
                   
+                  {pkg.hasPickupOptions && (
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium mb-2">Pickup Location:</label>
+                      <select
+                        value={selectedPickup[pkg.name] || pkg.pickupOptions[0].value}
+                        onChange={(e) => setSelectedPickup({...selectedPickup, [pkg.name]: e.target.value})}
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        {pkg.pickupOptions.map((option: any) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label} - ₹{option.price.toLocaleString('en-IN')}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="font-display text-3xl font-bold text-primary">{pkg.price}</span>
+                    <span className="font-display text-3xl font-bold text-primary">{getPackagePrice(pkg)}</span>
                     <span className="text-muted-foreground text-sm">/{pkg.priceNote}</span>
                   </div>
 

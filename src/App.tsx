@@ -9,7 +9,6 @@ import TentStayPage from "./pages/TentStayPage";
 import TrekkingPage from "./pages/TrekkingPage";
 import PackagesPage from "./pages/PackagesPage";
 import EventsPage from "./pages/EventsPage";
-import WorkFromMountainsPage from "./pages/WorkFromMountainsPage";
 import MerchandisePage from "./pages/MerchandisePage";
 import InvestPage from "./pages/InvestPage";
 import ContactPage from "./pages/ContactPage";
@@ -30,7 +29,6 @@ const App = () => (
           <Route path="/trekking" element={<TrekkingPage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/events" element={<EventsPage />} />
-          <Route path="/work-from-mountains" element={<WorkFromMountainsPage />} />
           <Route path="/merchandise" element={<MerchandisePage />} />
           <Route path="/invest" element={<InvestPage />} />
           <Route path="/contact" element={<ContactPage />} />

@@ -16,7 +16,7 @@ const treks = [
     distance: "12 km one way",
     altitude: "2,960m",
     highlights: ["Natural hot springs", "Parvati River views", "Forest camping"],
-    price: "₹3,500",
+    price: "₹3,000",
   },
   {
     name: "Tosh Glacier Trek",
@@ -29,7 +29,7 @@ const treks = [
     price: "₹2,500",
   },
   {
-    name: "Malana Village Trek",
+    name: "Malana Village / Magic Valley Trek",
     description: "Visit the ancient village with unique culture and customs.",
     duration: "1 Day",
     difficulty: "Easy-Moderate",
@@ -39,14 +39,25 @@ const treks = [
     price: "₹2,000",
   },
   {
-    name: "Rasol Pass Trek",
-    description: "A rewarding trek with stunning panoramic mountain views.",
-    duration: "1 Day",
-    difficulty: "Moderate",
-    distance: "10 km round trip",
-    altitude: "3,180m",
-    highlights: ["360° views", "Pine forests", "Village visit"],
-    price: "₹2,500",
+    name: "Manthalay Trek",
+    description: "An epic multi-day adventure through pristine Himalayan landscapes.",
+    duration: "6 Days 5 Nights",
+    difficulty: "Challenging",
+    distance: "Multi-day expedition",
+    altitude: "4,200m",
+    highlights: ["Remote villages", "High altitude passes", "Camping under stars"],
+    price: "₹35,000",
+  },
+  {
+    name: "Custom Trek",
+    description: "Design your own trekking adventure! Get in touch via WhatsApp to plan a personalized trek tailored to your preferences and experience level.",
+    duration: "Flexible",
+    difficulty: "Custom",
+    distance: "Your choice",
+    altitude: "Varies",
+    highlights: ["Personalized route", "Flexible schedule", "Custom experience"],
+    price: "Contact us",
+    isCustom: true,
   },
 ];
 
@@ -138,7 +149,9 @@ const TrekkingPage = () => {
                       trek.difficulty === "Challenging" 
                         ? "bg-destructive/10 text-destructive"
                         : trek.difficulty === "Moderate"
-                        ? "bg-highlight/10 text-highlight-foreground"
+                        ? "bg-orange-500/10 text-orange-600 dark:text-orange-400"
+                        : trek.difficulty === "Custom"
+                        ? "bg-purple-500/10 text-purple-600 dark:text-purple-400"
                         : "bg-primary/10 text-primary"
                     }`}>
                       {trek.difficulty}
@@ -175,12 +188,12 @@ const TrekkingPage = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="font-display text-2xl font-bold text-primary">{trek.price}</span>
-                      <span className="text-muted-foreground text-sm"> /person</span>
+                      {!trek.isCustom && <span className="text-muted-foreground text-sm"> /person</span>}
                     </div>
                     <WhatsAppButton
                       message={`Hi! I'm interested in the ${trek.name} from Shambhala THD.`}
                     >
-                      Book Trek
+                      {trek.isCustom ? "Get in Touch" : "Book Trek"}
                     </WhatsAppButton>
                   </div>
                 </div>

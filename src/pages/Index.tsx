@@ -13,7 +13,6 @@ import heroImage from "@/assets/hero-mountains.jpg";
 import tentImage from "@/assets/tent-stay.jpg";
 import trekkingImage from "@/assets/trekking.jpg";
 import bonfireImage from "@/assets/bonfire.jpg";
-import wfmImage from "@/assets/work-from-mountains.jpg";
 import retreatImage from "@/assets/retreat.jpg";
 import toshImage from "@/assets/tosh-village.jpg";
 
@@ -36,12 +35,6 @@ const experiences = [
     image: retreatImage,
     link: "/events",
   },
-  {
-    title: "Work From Mountains",
-    description: "Remote work paradise with high-speed internet, inspiring views, and a community of like-minded nomads.",
-    image: wfmImage,
-    link: "/work-from-mountains",
-  },
 ];
 
 const testimonials = [
@@ -58,10 +51,46 @@ const testimonials = [
     text: "I've traveled all over India, but Tosh holds a special place. The team at Shambhala made every moment magical - from sunrise treks to bonfire nights.",
   },
   {
+    name: "Ananya Patel",
+    location: "Bangalore",
+    rating: 5,
+    text: "The perfect escape from city life. Beautiful tents, delicious food, and the most breathtaking views. The bonfire nights under the stars were unforgettable!",
+  },
+  {
     name: "Rahul Verma",
     location: "Delhi",
     rating: 5,
-    text: "The work-from-mountains program is incredible. Fast wifi, great food, and the most beautiful office view you can imagine. Perfect balance of work and adventure.",
+    text: "Best decision to come here for my solo trip. The hosts were incredibly welcoming and the Kheerganga trek was absolutely stunning. Met amazing people and created memories for lifetime.",
+  },
+  {
+    name: "Sarah Mitchell",
+    location: "Melbourne, Australia",
+    rating: 5,
+    text: "Came here after reading reviews and it exceeded all expectations. The tent was cozy and warm, food was delicious, and the mountain views from the property are simply breathtaking. Highly recommend!",
+  },
+  {
+    name: "Vikram Singh",
+    location: "Chandigarh",
+    rating: 5,
+    text: "Visited with my family and everyone loved it. Kids enjoyed the village walks, we adults loved the peaceful environment. The staff went above and beyond to make our stay comfortable.",
+  },
+  {
+    name: "Emma Rodriguez",
+    location: "Barcelona, Spain",
+    rating: 5,
+    text: "I spent a week here and didn't want to leave. The combination of adventure activities and peaceful moments by the bonfire was perfect. The local guides are knowledgeable and friendly.",
+  },
+  {
+    name: "Arjun Mehta",
+    location: "Pune",
+    rating: 5,
+    text: "Came here for a weekend getaway with friends. The hospitality was top-notch, tents were clean and comfortable. The night sky here is something you have to see to believe!",
+  },
+  {
+    name: "Lisa Chen",
+    location: "Singapore",
+    rating: 5,
+    text: "Such a peaceful retreat away from the hustle. The yoga sessions in the morning with mountain backdrop and the evening bonfires made this trip truly special. Will definitely return!",
   },
 ];
 
@@ -271,7 +300,7 @@ const Index = () => {
             className="mb-12 md:mb-16"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {experiences.map((exp, index) => (
               <ExperienceCard key={exp.title} {...exp} index={index} />
             ))}
@@ -388,7 +417,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-secondary/30">
+      <section className="py-16 md:py-24 bg-secondary/30 overflow-hidden">
         <div className="container mx-auto px-4">
           <SectionHeading
             tagline="Stories"
@@ -397,10 +426,27 @@ const Index = () => {
             className="mb-12 md:mb-16"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.name} {...testimonial} index={index} />
-            ))}
+          <div className="relative">
+            <motion.div 
+              className="flex gap-6"
+              animate={{
+                x: [0, -1800],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <div key={`${testimonial.name}-${index}`} className="flex-shrink-0 w-[350px]">
+                  <TestimonialCard {...testimonial} index={index} />
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
