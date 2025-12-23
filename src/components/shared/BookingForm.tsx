@@ -87,7 +87,7 @@ const BookingForm = ({ experience = "General Inquiry" }: BookingFormProps) => {
           </label>
           <Input
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder="+91 9566026641"
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import BookingForm from "@/components/shared/BookingForm";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 
 import toshImage from "@/assets/tosh-village.jpg";
@@ -15,12 +14,12 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 98765 43210", "+91 98765 43211"],
+    details: ["+91 9566026641"],
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["namaste@shambhalathd.com", "bookings@shambhalathd.com"],
+    details: ["shambhalathd@gmail.com"],
   },
   {
     icon: Clock,
@@ -74,22 +73,12 @@ const ContactPage = () => {
       {/* Contact Grid */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <BookingForm />
-            </motion.div>
-
+          <div className="max-w-4xl mx-auto">
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
             >
               <div className="bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 mb-8">
                 <div className="flex items-center gap-3 mb-4">

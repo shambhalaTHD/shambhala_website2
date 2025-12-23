@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const whatsappLink = "https://wa.me/919876543210?text=Hi%20Shambhala%20THD!%20I%20want%20to%20know%20more%20about%20your%20mountain%20experiences.";
+  const whatsappLink = "https://wa.me/919566026641?text=Hi%20Shambhala%20THD!%20I%20want%20to%20know%20more%20about%20your%20mountain%20experiences.";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">

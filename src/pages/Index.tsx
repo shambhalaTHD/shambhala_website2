@@ -6,7 +6,6 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import ExperienceCard from "@/components/shared/ExperienceCard";
 import TestimonialCard from "@/components/shared/TestimonialCard";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
-import BookingForm from "@/components/shared/BookingForm";
 import { Button } from "@/components/ui/button";
 
 import heroImage from "@/assets/hero-mountains.jpg";
@@ -399,7 +398,7 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-12"
+            className="flex justify-center mt-12"
           >
             <WhatsAppButton
               size="lg"
@@ -407,11 +406,6 @@ const Index = () => {
             >
               Chat on WhatsApp
             </WhatsAppButton>
-            <Link to="/contact">
-              <Button variant="outline" size="lg">
-                Fill Booking Form
-              </Button>
-            </Link>
           </motion.div>
         </div>
       </section>
